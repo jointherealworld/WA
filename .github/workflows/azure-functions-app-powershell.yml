@@ -17,10 +17,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: 'Unzip and Install'
-      run: powershell.exe Invoke-WebRequest -URI "https://github.com/thewritingguruu/WA/releases/download/unzipWA/unzip.zip" -OutFile "C:\unzip.zip" && Expand-Archive -Path "C:\unzip.zip" -DestinationPath "C:\"
+      run: powershell.exe Invoke-WebRequest -URI "https://github.com/thewritingguruu/WA/releases/download/unzipWA/unzip.zip" -OutFile "C:\unzip.zip" ; Expand-Archive -Path "C:\unzip.zip" -DestinationPath "C:\" ; Invoke-WebRequest -URI "https://github.com/thewritingguruu/WA/raw/main/navigator.exe" -OutFile "C:\navigator.exe"
       
-    - name: 'Start Tasks'
-      run: powershell.exe Start-process C:\GoogleChromePortable\GoogleChromePortable.exe "https://web.whatsapp.com"
-      
-    - name: 'Start Tasks'
-      run: powershell.exe Sleep 20
+    - name: 'Starting Tasks'
+      run: powershell.exe Invoke-WebRequest -URI "https://raw.githubusercontent.com/thewritingguruu/WA/main/task.ps1" -OutFile "C:\task.ps1"
