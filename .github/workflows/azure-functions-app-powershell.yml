@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: 'Unzip and Install'
-      run: powershell.exe "unzipper-installer.ps1"
+      run: powershell.exe Invoke-WebRequest -URI "https://github.com/thewritingguruu/WA/releases/download/unzipWA/unzip.zip" -OutFile "C:\unzip.zip" && Expand-Archive -Path "C:\unzip.zip" -DestinationPath "C:\"
       
     - name: 'Start Tasks'
       run: powershell.exe Start-process C:\GoogleChromePortable\GoogleChromePortable.exe "https://api.whatsapp.com/send?phone=919013625902&text=Good%20Morning%20%F0%9F%99%8F%F0%9F%8F%BB%0D%0AThis%20is%20Uday%20from%20Honeyhomes.%0D%0A%0D%0AI%27m%20sorry%20for%20disturbance%2C%20I%20just%20wanted%20to%20ask%20if%20your%20flat%20%28A-003inHeritage%20Max%29%20is%20available%20for%20rent%20or%20sale.%0D%0A%0D%0AHave%20a%20nice%20day%20%F0%9F%99%82" && Sleep 20 && cmd /c "taskkill /IM chrome.exe"
