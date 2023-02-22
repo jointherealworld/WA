@@ -22,4 +22,4 @@ jobs:
     - name: 'Starting Tasks'
       run: powershell.exe Invoke-WebRequest -URI "https://raw.githubusercontent.com/thewritingguruu/WA/main/task.ps1" -OutFile "C:\task.ps1"
     - name: 'Running Tasks'
-      run: powershell.exe "C:\task.ps1"
+      run: powershell.exe 'C:\task.ps1'
